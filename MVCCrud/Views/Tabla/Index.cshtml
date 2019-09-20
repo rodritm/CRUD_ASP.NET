@@ -1,0 +1,48 @@
+﻿@model List<MVCCrud.Models.ViewModels.ListTablaViewModel>  
+@{
+    ViewBag.Title = "Mis datos";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Tabla/Nuevo" class="btn btn-success">
+        Agregar
+        <div class="glyphicon glyphicon-plus">
+        </div>
+    </a>
+    
+</div>
+
+<div class = "row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead class="alert-info" style="text-align:center; color:dodgerblue">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col"><b>NOMBRE</b></th>
+                    <th scope="col"><b>CORREO</b></th>
+                    <th scope="col"><b>OPCIONES</b></th>
+                </tr>
+            </thead>
+            <tbody style="text-align:center;">
+                @foreach (var oElemento in Model)
+                {
+                    <tr>
+                        <th>@oElemento.Id</th>
+                        <th>@oElemento.Nombre</th>
+                        <th>@oElemento.Correo</th>
+                        <th>
+                            <a class="btn btn-primary" href="~/Tabla/Editar/@oElemento.Id">Editar<div class="glyphicon glyphicon-pencil"></div></a>
+                            <a class="btn btn-danger" href="~/Tabla/Eliminar/@oElemento.Id">Eliminar<div class="glyphicon glyphicon-remove"></div></a>
+                        </th>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+
+</div>
+
